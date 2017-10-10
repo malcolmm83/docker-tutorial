@@ -1,0 +1,36 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nodejs-deployment
+  namespace: default
+  labels:
+    k8s-app: nodejs
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        k8s-app: nodejs
+    spec:
+      containers:
+        - name: nodejs
+          image: malcolmm83/nodejs-demo
+          # env:
+          # - name: FHIR_DATABASE_HOST
+            # valueFrom:
+                # secretKeyRef:
+                    # name: jdbc-connection-params
+                    # key: dbhost
+          # - name: FHIR_DATABASE_USER
+            # valueFrom:
+                # secretKeyRef:
+                    # name: jdbc-connection-params
+                    # key: dbuser
+          # - name: FHIR_DATABASE_PASS
+            # valueFrom:
+                # secretKeyRef:
+                    # name: jdbc-connection-params
+                    # key: dbpass
+          # ports:
+            # - name: http
+              # containerPort: 8080

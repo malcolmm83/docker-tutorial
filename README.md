@@ -3,12 +3,23 @@ Node.js Docker Tutorial
 
 So you have Node apps, and you want to use them with Docker. This repository is designed for helping you follow along with our [blog post](https://nodesource.com/blog/dockerizing-your-nodejs-applications/). It will take you from 0 to 60 with Docker and Node.js!
 
-## Run this example
+## build and push image
 
 ```
-docker-compose up
-// Watch the logs or run
-docker-compose logs myapp
+docker build -t malcolmm83/nodejs-demo:latest .
+docker push malcolmm83/nodejs-demo:latest
+```
+
+## run interactively in docker
+
+```
+docker run -it --name nodejs-demo malcolmm83/nodejs-demo:latest
+```
+
+## deploy to kubernetes
+
+```
+kubectl create -f node-deployment.yml
 ```
 
 ## Authors and Contributors
